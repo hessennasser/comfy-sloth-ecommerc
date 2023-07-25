@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 const CartColumns = () => {
   return (
     <Wrapper>
@@ -13,7 +12,6 @@ const CartColumns = () => {
       </div>
       <hr />
     </Wrapper>
-
   )
 }
 

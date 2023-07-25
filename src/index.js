@@ -2,24 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-
 import { ProductsProvider } from './context/products_context';
 import { FilterProvider } from './context/filter_context';
 import { CartProvider } from './context/cart_context';
 import { UserProvider } from './context/user_context';
 import { Auth0Provider } from '@auth0/auth0-react';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 
 root.render(
     <Auth0Provider
-        domain="dev-z7dzyn66ebkxeti1.us.auth0.com"
-        clientId="8CfL3siSIYAnNIuQzzNA2pt4emaHNO8n"
+        domain={process.env.REACT_APP_AUTH_DOMAIN}
+        clientId={process.env.REACT_APP_AUTH_CLIENT_ID}
         authorizationParams={{
-            redirect_uri: window.location.origin
+            redirect_uri: window.location.origin,
         }}
-        cacheLocation='localstorage'
     >
         <UserProvider>
             <ProductsProvider>
@@ -28,7 +24,7 @@ root.render(
                         <App />
                     </CartProvider>
                 </FilterProvider>
-            </ProductsProvider >
+            </ProductsProvider>
         </UserProvider>
     </Auth0Provider>
 );

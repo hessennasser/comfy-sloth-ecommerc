@@ -1,28 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
 import { services } from '../utils/constants'
-
 const Services = () => {
   return (
-    <Wrapper className='section'>
+    <Wrapper>
       <div className='section-center'>
         <article className='header'>
-          <h3>custom furniture <br />
-            built only for you</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+          <h3>
+            custom furniture <br /> built only for you
+          </h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+            dolorum debitis consectetur reprehenderit non aliquam voluptates
+            dolore aut vero consequuntur.
+          </p>
         </article>
-        <div className='section-center services-center'>
-          {services.map(service => {
+        <div className='services-center'>
+          {services.map((service) => {
             const { id, icon, title, text } = service
             return (
-              <article key={id} className='service'>
+              <article className='service' key={id}>
                 <span className='icon'>{icon}</span>
                 <h4>{title}</h4>
                 <p>{text}</p>
               </article>
             )
-          }
-          )}
+          })}
         </div>
       </div>
     </Wrapper>
@@ -37,6 +40,7 @@ const Wrapper = styled.section`
   padding: 5rem 0;
 
   background: var(--clr-primary-10);
+
   .header h3 {
     margin-bottom: 2rem;
   }

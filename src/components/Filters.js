@@ -12,15 +12,18 @@ const Filters = () => {
       company,
       color,
       min_price,
-      max_price,
       price,
+      max_price,
       shipping,
     },
     updateFilters,
-    clearFilters,
     all_products,
+    clearFilters,
   } = useFilterContext()
 
+  const categories = getUniqueValues(all_products, 'category')
+  const companies = getUniqueValues(all_products, 'company')
+  const colors = getUniqueValues(all_products, 'colors')
   return (
     <Wrapper>
       <div className='content'>
@@ -30,24 +33,24 @@ const Filters = () => {
             <input
               type='text'
               name='text'
-              placeholder='search'
-              className='search-input'
               value={text}
+              placeholder='search'
               onChange={updateFilters}
+              className='search-input'
             />
           </div>
           {/* end of search input */}
-          {/* categories */}
+          {/* category */}
           <div className='form-control'>
             <h5>category</h5>
             <div>
-              {getUniqueValues(all_products, 'category').map((c, index) => {
+              {categories.map((c, index) => {
                 return (
                   <button
                     key={index}
-                    name='category'
                     onClick={updateFilters}
                     type='button'
+                    name='category'
                     className={`${
                       category === c.toLowerCase() ? 'active' : null
                     }`}
@@ -58,8 +61,8 @@ const Filters = () => {
               })}
             </div>
           </div>
-          {/* end of categories */}
-          {/* companies */}
+          {/* end of category */}
+          {/* company */}
           <div className='form-control'>
             <h5>company</h5>
             <select
@@ -68,7 +71,7 @@ const Filters = () => {
               onChange={updateFilters}
               className='company'
             >
-              {getUniqueValues(all_products, 'company').map((c, index) => {
+              {companies.map((c, index) => {
                 return (
                   <option key={index} value={c}>
                     {c}
@@ -77,12 +80,12 @@ const Filters = () => {
               })}
             </select>
           </div>
-          {/* end of companies */}
+          {/* end of company */}
           {/* colors */}
           <div className='form-control'>
             <h5>colors</h5>
             <div className='colors'>
-              {getUniqueValues(all_products, 'colors').map((c, index) => {
+              {colors.map((c, index) => {
                 if (c === 'all') {
                   return (
                     <button
@@ -137,11 +140,11 @@ const Filters = () => {
               type='checkbox'
               name='shipping'
               id='shipping'
-              onChange={updateFilters}
               checked={shipping}
+              onChange={updateFilters}
             />
           </div>
-          {/* end of shipping */}
+          {/* end of  shipping */}
         </form>
         <button type='button' className='clear-btn' onClick={clearFilters}>
           clear filters
@@ -235,7 +238,6 @@ const Wrapper = styled.section`
     text-transform: capitalize;
     column-gap: 0.5rem;
     font-size: 1rem;
-    max-width: 200px;
   }
   .clear-btn {
     background: var(--clr-red-dark);

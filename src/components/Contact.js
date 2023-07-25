@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 const Contact = () => {
   return (
     <Wrapper>
@@ -8,17 +7,19 @@ const Contact = () => {
         <h3>Join our newsletter and get 20% off</h3>
         <div className='content'>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Quisquam, voluptatum.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Quisquam, voluptatum.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+            sint unde quaerat ratione soluta veniam provident adipisci cumque
+            eveniet tempore?
           </p>
-          <form
-            action="https://formspree.io/f/xnqknnnl"
-            method="POST"
-            className='contact-form'>
-            <input type='email' className='form-input' name="_replyto" placeholder='enter email' />
-            <button type='submit' className='submit-btn'>subscribe</button>
+          <form className='contact-form'>
+            <input
+              type='email'
+              className='form-input'
+              placeholder='enter email'
+            />
+            <button type='submit' className='submit-btn'>
+              subscribe
+            </button>
           </form>
         </div>
       </div>
@@ -61,10 +62,6 @@ const Wrapper = styled.section`
   .form-input::placeholder {
     color: var(--clr-black);
     text-transform: capitalize;
-  }
-  .form-input:focus,
-  .submit-btn:focus {
-    outline: none;
   }
   .submit-btn {
     background: var(--clr-primary-5);

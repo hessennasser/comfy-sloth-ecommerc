@@ -12,27 +12,27 @@ const CartItem = ({ id, image, name, color, price, amount }) => {
   const decrease = () => {
     toggleAmount(id, 'dec')
   }
-  return <Wrapper>
-    <div className='title'>
-      <img src={image} alt={name} />
-      <div>
-        <h5 className='name'>{name}</h5>
-        <p className='color'>
-          color : <span style={{ background: color }}></span>
-        </p>
-        <h5 className='price-small'>{formatPrice(price)}</h5>
+  return (
+    <Wrapper>
+      <div className='title'>
+        <img src={image} alt={name} />
+        <div>
+          <h5 className='name'>{name}</h5>
+          <p className='color'>
+            color :
+            <span style={{ background: color }} />
+          </p>
+          <h5 className='price-small'>{formatPrice(price)}</h5>
+        </div>
       </div>
-    </div>
-    <h5 className='price'>{formatPrice(price)}</h5>
-    <AmountButtons amount={amount} increase={increase} decrease={decrease} />
-    <h5 className='subtotal'>{formatPrice(price * amount)}</h5>
-    <button
-      type='button'
-      className='remove-btn'
-      onClick={() => removeItem(id)}
-    > <FaTrash />
-    </button>
-  </Wrapper>
+      <h5 className='price'>{formatPrice(price)}</h5>
+      <AmountButtons amount={amount} increase={increase} decrease={decrease} />
+      <h5 className='subtotal'>{formatPrice(price * amount)}</h5>
+      <button className='remove-btn' onClick={() => removeItem(id)}>
+        <FaTrash />
+      </button>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.article`
